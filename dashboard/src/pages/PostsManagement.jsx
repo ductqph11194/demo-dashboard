@@ -84,11 +84,12 @@ const PostsManagement = () => {
     title: item?.title,
     body: item?.body,
   }));
-  const onSearch = (value) => {
+  async function onSearch(value) {
     setSreachValue(value);
-    if (searchValue !== "") {
-      const newPacientes = listPost?.filter((value) =>
-        value.title?.toLowerCase()?.includes(searchValue?.toLowerCase())
+    console.log('value', value);
+    if (value !== "") {
+      const newPacientes = await listPost?.filter((postFilter) =>
+        postFilter.title?.toLowerCase()?.includes(value?.toLowerCase())
       );
       setFilterTitle(newPacientes);
     } else {
@@ -103,13 +104,13 @@ const PostsManagement = () => {
       <Input
         icon="search"
         placeholder="Search..."
-        onChange={(e) => onSearch(e.target.value)}
+        onInput={(e) => onSearch(e.target.value)}
       />
       <Table
         dataSource={searchValue?.length > 1 ? dataFilter : data}
         columns={columns}
         pagination={{
-          total: listPost?.length,
+          total: searchValue?.length > 1 ? filterTile : listPost?.length,
           currentPage: page,
           //   pageSize: 5,
           onChange: (currentPage) => {
