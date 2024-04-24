@@ -1,0 +1,16 @@
+.wrapper-setting {
+  text-align: start;
+  padding: 50px;
+  .name-page {
+    font-size: 20px;
+    padding-bottom: 50px;
+  }
+  .list-input {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 25px;
+    .item {
+      padding-bottom: 25px;
+    }
+  }
+}

@@ -3,6 +3,8 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import PostsManagement from "./pages/PostsManagement";
 import { useEffect } from "react";
+import SettingPage from "./pages/SettingPage.jsx";
+
 function App() {
   const href = window.location.pathname;
 
@@ -19,6 +21,7 @@ function App() {
           <Route exact path="/" element={<Dashboard />} />
           <Route exact path="dashboard/*" element={<Dashboard />} />
           <Route exact path="/post-management" element={<PostsManagement />} />
+          <Route exact path="/setting" element={<SettingPage />} />
         </Routes>
       </BrowserRouter>
     </div>

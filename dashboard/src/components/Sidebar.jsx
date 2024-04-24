@@ -16,6 +16,11 @@ const Sidebar = () => {
               Posts Management
             </NavLink>
           </li>
+          <li>
+            <NavLink className="nav-link" to={`/setting`}>
+              Settings
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>
