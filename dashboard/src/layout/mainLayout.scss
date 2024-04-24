@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  gap: 24px;
+
+  .children {
+    gap: 24px;
+    margin-bottom: 163px;
+    width: 70%;
+    canvas {
+      //   width: 80% !important;
+      //   height: 500px;
+    }
+  }
+}

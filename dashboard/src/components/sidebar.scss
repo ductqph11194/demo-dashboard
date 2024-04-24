@@ -1,0 +1,36 @@
+.side-bar {
+  background-color: #ffffff;
+  border-right: 3px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  top: 14px;
+
+  .sidebar-menu {
+    width: 213px;
+    font-size: 20px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+
+    .nav-link {
+      padding: 18px 0;
+      color: gray;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+      line-height: 24px;
+
+      &:hover {
+        color: black;
+      }
+      .active {
+        color: black;
+      }
+    }
+    .active {
+      color: black;
+    }
+  }
+}
