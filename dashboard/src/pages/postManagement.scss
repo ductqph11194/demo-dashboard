@@ -1,0 +1,16 @@
+.wrapper-post {
+}
+.ant-popover-content {
+  max-width: 500px !important;
+  .list-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    .text {
+      display: flex;
+    }
+    .title {
+      font-weight: 600;
+    }
+  }
+}

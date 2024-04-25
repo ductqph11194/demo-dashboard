@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MainLayout from "../layout/MainLayout";
 import { Button, Input, Popover, Space, Table } from "antd";
 import { EyeOutlined } from "@ant-design/icons";
+import "./postManagement.scss";
 const PostsManagement = () => {
   const [page, setPage] = useState();
 
@@ -51,13 +52,24 @@ const PostsManagement = () => {
         <Space size="small">
           <Popover
             content={
-              <>
-                <div> UserId:{record.userId}</div>
-                <div> Id:{record.id}</div>
-                <div> Title:{record.title}</div>
-                <div> Body:{record.body}</div>
+              <div className="list-content">
+                <div className="text">
+                  <div className="title"> UserId:</div>
+                  {record.userId}
+                </div>
+                <div className="text">
+                  <div className="title"> Id:</div>
+                  {record.id}
+                </div>
+                <div className="text">
+                  <div className="title">Title:</div> {record.title}
+                </div>
+                <div className="text">
+                  <div className="title"> Body:</div>
+                  {record.body}
+                </div>
                 <a onClick={hide}>Close</a>
-              </>
+              </div>
             }
             title="Content"
             trigger="click"
@@ -86,7 +98,7 @@ const PostsManagement = () => {
   }));
   async function onSearch(value) {
     setSreachValue(value);
-    console.log('value', value);
+    console.log("value", value);
     if (value !== "") {
       const newPacientes = await listPost?.filter((postFilter) =>
         postFilter.title?.toLowerCase()?.includes(value?.toLowerCase())
@@ -95,29 +107,30 @@ const PostsManagement = () => {
     } else {
       setFilterTitle(listPost);
     }
-  };
+  }
 
-  const { Search } = Input;
   return (
     <MainLayout>
-      Users Management
-      <Input
-        icon="search"
-        placeholder="Search..."
-        onInput={(e) => onSearch(e.target.value)}
-      />
-      <Table
-        dataSource={searchValue?.length > 1 ? dataFilter : data}
-        columns={columns}
-        pagination={{
-          total: searchValue?.length > 1 ? filterTile : listPost?.length,
-          currentPage: page,
-          //   pageSize: 5,
-          onChange: (currentPage) => {
-            setPage(currentPage);
-          },
-        }}
-      />
+      <div className="wrapper-post">
+        Users Management
+        <Input
+          icon="search"
+          placeholder="Search..."
+          onInput={(e) => onSearch(e.target.value)}
+        />
+        <Table
+          dataSource={searchValue?.length > 1 ? dataFilter : data}
+          columns={columns}
+          pagination={{
+            total: searchValue?.length > 1 ? filterTile : listPost?.length,
+            currentPage: page,
+            //   pageSize: 5,
+            onChange: (currentPage) => {
+              setPage(currentPage);
+            },
+          }}
+        />
+      </div>
     </MainLayout>
   );
 };
